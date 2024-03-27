@@ -125,7 +125,13 @@ const CameraHandler = ({ slideDistance }) => {
   );
 };
 
-export const Experience = () => {
+export const Experience = ({setMounted}) => {
+
+  useEffect(() => {
+    // Set mounted status once the component is mounted
+    setMounted();
+  }, [setMounted]);
+
   const viewport = useThree((state) => state.viewport);
   const { slideDistance } = useControls({
     slideDistance: {
